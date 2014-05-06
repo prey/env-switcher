@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bash</key>
+	<false/>
+	<key>node</key>
+	<true/>
+	<key>urlProd</key>
+	<string>https://control.preyproject.com</string>
+	<key>urlStaging</key>
+	<string>https://control.preyapp.com</string>
+</dict>
+</plist>
