@@ -7,8 +7,8 @@
 	<key>node</key>
 	<true/>
 	<key>urlProd</key>
-	<string>https://control.preyproject.com</string>
+	<string>control.preyproject.com</string>
 	<key>urlStaging</key>
-	<string>https://control.preyapp.com</string>
+	<string>control.preyapp.com</string>
 </dict>
 </plist>
