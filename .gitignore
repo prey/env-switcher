@@ -3,3 +3,4 @@ envswitchTests/
 envswitch.xcodeproj/!*.xcodeproj/project.pbxproj
 envswitch.xcodeproj/xcuserdata/*
 envswitch.xcodeproj/project.xcworkspace/xcuserdata/*
+envswitch.xccheckout
