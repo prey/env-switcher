@@ -17,6 +17,7 @@
                 <outlet property="cancel" destination="tId-tZ-kbu" id="X43-en-tvj"/>
                 <outlet property="node" destination="zPt-Jg-v4a" id="y4c-k3-cir"/>
                 <outlet property="save" destination="m9T-Nv-GVP" id="9Gi-fc-ISW"/>
+                <outlet property="urlLocalhost" destination="oWR-Jt-hHd" id="g3B-oS-ah0"/>
                 <outlet property="urlProd" destination="BFL-Ry-H6w" id="HS3-UT-SFY"/>
                 <outlet property="urlStaging" destination="PsQ-cV-kcx" id="xHZ-Zf-HXK"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="GU8-Gd-NUy"/>
@@ -675,14 +676,14 @@
         <window title="Environment switcher" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="1259" y="811" width="303" height="252"/>
+            <rect key="contentRect" x="1259" y="811" width="303" height="281"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="303" height="252"/>
+                <rect key="frame" x="0.0" y="0.0" width="303" height="281"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UOE-zk-Jz9">
-                        <rect key="frame" x="18" y="215" width="105" height="17"/>
+                        <rect key="frame" x="18" y="244" width="105" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Production host" id="Pu9-va-6Tr">
                             <font key="font" metaFont="system"/>
@@ -691,7 +692,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eht-2O-UHQ">
-                        <rect key="frame" x="18" y="190" width="54" height="17"/>
+                        <rect key="frame" x="18" y="219" width="54" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="https://" id="sAY-S6-Vax">
                             <font key="font" metaFont="system"/>
@@ -700,7 +701,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cgb-UI-Z90">
-                        <rect key="frame" x="18" y="123" width="54" height="17"/>
+                        <rect key="frame" x="18" y="166" width="54" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="https://" id="J7y-jf-JFm">
                             <font key="font" metaFont="system"/>
@@ -709,7 +710,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tSC-u0-fIM">
-                        <rect key="frame" x="18" y="148" width="88" height="17"/>
+                        <rect key="frame" x="18" y="191" width="88" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Staging host" id="KVk-3v-myi">
                             <font key="font" metaFont="system"/>
@@ -718,7 +719,7 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BFL-Ry-H6w">
-                        <rect key="frame" x="73" y="187" width="210" height="22"/>
+                        <rect key="frame" x="73" y="216" width="210" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="control.preyproject.com" placeholderString="control.preyproject.com" drawsBackground="YES" id="gXC-kX-Prd">
                             <font key="font" metaFont="system"/>
@@ -727,9 +728,36 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PsQ-cV-kcx">
-                        <rect key="frame" x="73" y="120" width="210" height="22"/>
+                        <rect key="frame" x="73" y="163" width="210" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="control.preypapp.com" placeholderString="control.preypapp.com" drawsBackground="YES" id="YVc-zG-pq0">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zhT-qF-BfW">
+                        <rect key="frame" x="18" y="113" width="54" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="https://" id="YYX-Ib-74w">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Pc-YG-aqg">
+                        <rect key="frame" x="18" y="138" width="88" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Localhost" id="WES-Tc-ftg">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oWR-Jt-hHd">
+                        <rect key="frame" x="73" y="110" width="210" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="localhost" placeholderString="localhost" drawsBackground="YES" id="HZh-Gg-US1">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -761,7 +789,7 @@ Gw
                         </connections>
                     </button>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yxs-Ag-9gs">
-                        <rect key="frame" x="111" y="79" width="107" height="18"/>
+                        <rect key="frame" x="98" y="79" width="107" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Bash client" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="X4l-6y-qKZ">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -769,7 +797,7 @@ Gw
                         </buttonCell>
                     </button>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zPt-Jg-v4a">
-                        <rect key="frame" x="111" y="59" width="107" height="18"/>
+                        <rect key="frame" x="98" y="59" width="107" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Node client" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="o3s-eh-HdA">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>

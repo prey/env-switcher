@@ -35,6 +35,9 @@ int y;
     NSMenuItem *stagingItem = nil;
     stagingItem = [theMenu addItemWithTitle:@"Staging" action:@selector(handleStaging:) keyEquivalent:@"s"];
     [stagingItem setKeyEquivalentModifierMask:NSCommandKeyMask];
+    NSMenuItem *localhostItem = nil;
+    localhostItem = [theMenu addItemWithTitle:@"Localhost" action:@selector(handleLocalhost:) keyEquivalent:@"l"];
+    [localhostItem setKeyEquivalentModifierMask:NSCommandKeyMask];
     [theMenu addItem:[NSMenuItem separatorItem]];
     NSMenuItem *prefItem = nil;
     prefItem = [theMenu addItemWithTitle:@"Preferences..." action:@selector(handlePreferences:) keyEquivalent:@","];
@@ -66,6 +69,7 @@ int y;
     [self.node setState:[[[NSUserDefaults standardUserDefaults] objectForKey:@"node"] boolValue]];
     [self.urlProd setStringValue:[[NSUserDefaults standardUserDefaults] stringForKey:@"urlProd"]];
     [self.urlStaging setStringValue:[[NSUserDefaults standardUserDefaults] stringForKey:@"urlStaging"]];
+    [self.urlLocalhost setStringValue:[[NSUserDefaults standardUserDefaults] stringForKey:@"urlLocalhost"]];
 }
 
 -(void)handleProduction:(id) sender
@@ -76,6 +80,11 @@ int y;
 -(void)handleStaging:(id) sender
 {
     [self modifyCheckUrlWith:[self.urlStaging stringValue]];
+}
+
+-(void)handleLocalhost:(id) sender
+{
+    [self modifyCheckUrlWith:[self.urlLocalhost stringValue]];
 }
 
 -(void)handlePreferences:(id) sender

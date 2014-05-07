@@ -10,5 +10,7 @@
 	<string>control.preyproject.com</string>
 	<key>urlStaging</key>
 	<string>control.preyapp.com</string>
+	<key>urlLocalhost</key>
+	<string>localhost</string>
 </dict>
 </plist>

@@ -17,6 +17,7 @@
 @property (assign) IBOutlet NSButton *node;
 @property (assign) IBOutlet NSTextField *urlProd;
 @property (assign) IBOutlet NSTextField *urlStaging;
+@property (assign) IBOutlet NSTextField *urlLocalhost;
 
 - (IBAction)save:(id)sender;
 - (IBAction)cancel:(id)sender;
