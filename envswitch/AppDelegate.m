@@ -49,7 +49,7 @@ int y;
     
     NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
     statusItem = [statusBar statusItemWithLength:NSVariableStatusItemLength];
-    [statusItem setImage:[NSImage imageNamed:@"icon.png"]];
+    [self drawIconForEnv:nil];
     [statusItem setToolTip:@"Prey environment switcher"];
     [statusItem setHighlightMode:YES];
     [statusItem setEnabled:YES];
@@ -75,16 +75,19 @@ int y;
 -(void)handleProduction:(id) sender
 {
     [self modifyCheckUrlWith:[self.urlProd stringValue]];
+    [self drawIconForEnv:@"production"];
 }
 
 -(void)handleStaging:(id) sender
 {
     [self modifyCheckUrlWith:[self.urlStaging stringValue]];
+    [self drawIconForEnv:@"staging"];
 }
 
 -(void)handleLocalhost:(id) sender
 {
     [self modifyCheckUrlWith:[self.urlLocalhost stringValue]];
+    [self drawIconForEnv:@"localhost"];
 }
 
 -(void)handlePreferences:(id) sender
@@ -149,6 +152,16 @@ int y;
     NSError *error = nil;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regexp options:NSRegularExpressionCaseInsensitive error:&error];
     [regex replaceMatchesInString:text options:0 range:NSMakeRange(0, [text length]) withTemplate:newText];
+}
+
+-(void) drawIconForEnv: (NSString*) env
+{
+    if (env != nil) {
+        [[NSUserDefaults standardUserDefaults] setObject:env forKey:@"icon"];
+        [[NSUserDefaults standardUserDefaults] setObject:[env stringByAppendingString:@"H"] forKey:@"iconH"];
+    }
+    [statusItem setImage:[NSImage imageNamed:[[NSUserDefaults standardUserDefaults] stringForKey:@"icon"]]];
+    [statusItem setAlternateImage:[NSImage imageNamed:[[NSUserDefaults standardUserDefaults] stringForKey:@"iconH"]]];
 }
 
 - (IBAction)save:(id)sender {
