@@ -159,6 +159,7 @@ int y;
     if (env != nil) {
         [[NSUserDefaults standardUserDefaults] setObject:env forKey:@"icon"];
         [[NSUserDefaults standardUserDefaults] setObject:[env stringByAppendingString:@"H"] forKey:@"iconH"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     }
     [statusItem setImage:[NSImage imageNamed:[[NSUserDefaults standardUserDefaults] stringForKey:@"icon"]]];
     [statusItem setAlternateImage:[NSImage imageNamed:[[NSUserDefaults standardUserDefaults] stringForKey:@"iconH"]]];
