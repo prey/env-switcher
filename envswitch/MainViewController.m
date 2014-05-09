@@ -23,17 +23,22 @@ int const localhost=3;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+
     }
     return self;
 }
 
-- (void)willClose
+
+
+- (void)loadDefaults
 {
+    
     NSURL *defaultPrefsFile = [[NSBundle mainBundle]
                                URLForResource:@"DefaultPreferences" withExtension:@"plist"];
     NSDictionary *defaultPrefs =
     [NSDictionary dictionaryWithContentsOfURL:defaultPrefsFile];
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultPrefs];
+     
     
     [self.bash setState:[[[NSUserDefaults standardUserDefaults] objectForKey:@"bash"] boolValue]];
     [self.node setState:[[[NSUserDefaults standardUserDefaults] objectForKey:@"node"] boolValue]];
@@ -41,14 +46,39 @@ int const localhost=3;
     [self.urlProd setStringValue:[[NSUserDefaults standardUserDefaults] stringForKey:@"urlProd"]];
     [self.apiProd setStringValue:[[NSUserDefaults standardUserDefaults] stringForKey:@"apiProd"]];
     [self.devProd setStringValue:[[NSUserDefaults standardUserDefaults] stringForKey:@"devProd"]];
+    [self.httpsProd setState:[[[NSUserDefaults standardUserDefaults] objectForKey:@"httpsProd"] boolValue]];
     
     [self.urlStaging setStringValue:[[NSUserDefaults standardUserDefaults] stringForKey:@"urlStaging"]];
     [self.apiStaging setStringValue:[[NSUserDefaults standardUserDefaults] stringForKey:@"apiStaging"]];
     [self.devStaging setStringValue:[[NSUserDefaults standardUserDefaults] stringForKey:@"devStaging"]];
+    [self.httpsStaging setState:[[[NSUserDefaults standardUserDefaults] objectForKey:@"httpsStaging"] boolValue]];
     
     [self.urlLocalhost setStringValue:[[NSUserDefaults standardUserDefaults] stringForKey:@"urlLocalhost"]];
     [self.apiLocalhost setStringValue:[[NSUserDefaults standardUserDefaults] stringForKey:@"apiLocalhost"]];
     [self.devLocalhost setStringValue:[[NSUserDefaults standardUserDefaults] stringForKey:@"devLocalhost"]];
+    [self.httpsLocalhost setState:[[[NSUserDefaults standardUserDefaults] objectForKey:@"httpsLocalhost"] boolValue]];
+}
+
+- (void)willClose
+{
+    [[NSUserDefaults standardUserDefaults] setObject:[self.urlProd stringValue] forKey:@"urlProd"];
+    [[NSUserDefaults standardUserDefaults] setObject:[self.apiProd stringValue] forKey:@"apiProd"];
+    [[NSUserDefaults standardUserDefaults] setObject:[self.devProd stringValue] forKey:@"devProd"];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:[self.httpsProd state]== NSOnState] forKey:@"httpsProd"];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:[self.urlStaging stringValue] forKey:@"urlStaging"];
+    [[NSUserDefaults standardUserDefaults] setObject:[self.apiStaging stringValue] forKey:@"apiStaging"];
+    [[NSUserDefaults standardUserDefaults] setObject:[self.devStaging stringValue] forKey:@"devStaging"];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:[self.httpsStaging state]== NSOnState] forKey:@"httpsStaging"];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:[self.urlLocalhost stringValue] forKey:@"urlLocalhost"];
+    [[NSUserDefaults standardUserDefaults] setObject:[self.apiLocalhost stringValue] forKey:@"apiLocalhost"];
+    [[NSUserDefaults standardUserDefaults] setObject:[self.devLocalhost stringValue] forKey:@"devLocalhost"];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:[self.httpsLocalhost state]== NSOnState] forKey:@"httpsLocalhost"];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:[self.bash state]== NSOnState] forKey:@"bash"];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:[self.node state]== NSOnState] forKey:@"node"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (IBAction)applyProduction:(id)sender
@@ -175,11 +205,16 @@ int const localhost=3;
     [regex replaceMatchesInString:text options:0 range:NSMakeRange(0, [text length]) withTemplate:newText];
 }
 
-
-
-
-
-
+- (void)rightMouseUp:(NSEvent *)event {
+    
+    NSMenu* theMenu;
+    theMenu = [[NSMenu alloc] initWithTitle:@""];
+    [theMenu setAutoenablesItems:NO];
+    NSMenuItem *quitItem = nil;
+    quitItem = [theMenu addItemWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@"q"];
+    [quitItem setKeyEquivalentModifierMask:NSCommandKeyMask];
+    [theMenu popUpMenuPositioningItem:quitItem atLocation:[NSEvent mouseLocation] inView:nil];
+}
 
 
 @end

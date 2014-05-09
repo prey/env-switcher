@@ -107,6 +107,8 @@ NSWindow* windowToOverride;
         
         windowToOverride = self.window;
         
+
+        
         [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(applicationDidResignActive:) name:NSApplicationDidResignActiveNotification object:nil];
         [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(windowDidBecomeKey:) name:NSWindowDidBecomeKeyNotification object:nil];
     }
@@ -253,6 +255,7 @@ NSWindow* windowToOverride;
 - (void) popoverWillShow: (NSNotification*) note
 {
     self.active = YES;
+    [_viewController performSelector:@selector(loadDefaults)];
 }
 
 - (void) popoverWillClose: (NSNotification*) note
