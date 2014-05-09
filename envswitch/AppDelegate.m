@@ -7,152 +7,36 @@
 //
 
 #import "AppDelegate.h"
+#import "MainViewController.h"
+#import "AXStatusItemPopup.h"
+
+@interface AppDelegate () {
+    AXStatusItemPopup *_statusItemPopup;
+}
+
+@end
 
 @implementation AppDelegate
 
-NSStatusItem *statusItem;
-NSMenu *theMenu;
-int x;
-int y;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     
+    MainViewController *mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+    
+    [self drawIconForEnv:nil];
+    NSImage *image = [NSImage imageNamed:[[NSUserDefaults standardUserDefaults] stringForKey:@"icon"]];
+    NSImage *alternateImage = [NSImage imageNamed:[[NSUserDefaults standardUserDefaults] stringForKey:@"iconH"]];
+    
+    _statusItemPopup = [[AXStatusItemPopup alloc] initWithViewController:mainViewController image:image alternateImage:alternateImage];
     [self.window close];
+/*
+ 
     [self loadDefaults];
     [self createMenu];
-
+*/
 }
 
-- (void) createMenu
-{
-    theMenu = [[NSMenu alloc] initWithTitle:@""];
-    [theMenu setAutoenablesItems:NO];
-    
-    NSMenuItem *prodItem = nil;
-    prodItem = [theMenu addItemWithTitle:@"Production" action:@selector(handleProduction:) keyEquivalent:@"p"];
-    [prodItem setKeyEquivalentModifierMask:NSCommandKeyMask];
-    NSMenuItem *stagingItem = nil;
-    stagingItem = [theMenu addItemWithTitle:@"Staging" action:@selector(handleStaging:) keyEquivalent:@"s"];
-    [stagingItem setKeyEquivalentModifierMask:NSCommandKeyMask];
-    NSMenuItem *localhostItem = nil;
-    localhostItem = [theMenu addItemWithTitle:@"Localhost" action:@selector(handleLocalhost:) keyEquivalent:@"l"];
-    [localhostItem setKeyEquivalentModifierMask:NSCommandKeyMask];
-    [theMenu addItem:[NSMenuItem separatorItem]];
-    NSMenuItem *prefItem = nil;
-    prefItem = [theMenu addItemWithTitle:@"Preferences..." action:@selector(handlePreferences:) keyEquivalent:@","];
-    [prefItem setKeyEquivalentModifierMask:NSCommandKeyMask];
-    [theMenu addItem:[NSMenuItem separatorItem]];
-    NSMenuItem *quitItem = nil;
-    quitItem = [theMenu addItemWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@"q"];
-    [quitItem setKeyEquivalentModifierMask:NSCommandKeyMask];
-    
-    NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
-    statusItem = [statusBar statusItemWithLength:NSVariableStatusItemLength];
-    [self drawIconForEnv:nil];
-    [statusItem setToolTip:@"Prey environment switcher"];
-    [statusItem setHighlightMode:YES];
-    [statusItem setEnabled:YES];
-    [statusItem setMenu:theMenu];
-
-}
-
--(void) loadDefaults
-{
-    NSURL *defaultPrefsFile = [[NSBundle mainBundle]
-                               URLForResource:@"DefaultPreferences" withExtension:@"plist"];
-    NSDictionary *defaultPrefs =
-    [NSDictionary dictionaryWithContentsOfURL:defaultPrefsFile];
-    [[NSUserDefaults standardUserDefaults] registerDefaults:defaultPrefs];
-    
-    [self.bash setState:[[[NSUserDefaults standardUserDefaults] objectForKey:@"bash"] boolValue]];
-    [self.node setState:[[[NSUserDefaults standardUserDefaults] objectForKey:@"node"] boolValue]];
-    [self.urlProd setStringValue:[[NSUserDefaults standardUserDefaults] stringForKey:@"urlProd"]];
-    [self.urlStaging setStringValue:[[NSUserDefaults standardUserDefaults] stringForKey:@"urlStaging"]];
-    [self.urlLocalhost setStringValue:[[NSUserDefaults standardUserDefaults] stringForKey:@"urlLocalhost"]];
-}
-
--(void)handleProduction:(id) sender
-{
-    [self modifyCheckUrlWith:[self.urlProd stringValue]];
-    [self drawIconForEnv:@"production"];
-}
-
--(void)handleStaging:(id) sender
-{
-    [self modifyCheckUrlWith:[self.urlStaging stringValue]];
-    [self drawIconForEnv:@"staging"];
-}
-
--(void)handleLocalhost:(id) sender
-{
-    [self modifyCheckUrlWith:[self.urlLocalhost stringValue]];
-    [self drawIconForEnv:@"localhost"];
-}
-
--(void)handlePreferences:(id) sender
-{
-    [self.window makeKeyAndOrderFront:NSApp];
-    [NSApp activateIgnoringOtherApps:YES];
-}
-
--(void)modifyCheckUrlWith: (NSString*) newUrl
-{
-    NSError * error;
-    
-    NSString * bashConfigPath = @"/usr/share/prey/config";
-    NSString * nodeConfigPath = @"/etc/prey/prey.conf";
-    NSString * bashTmpPath = @"/tmp/config";
-    NSString * nodeTmpPath = @"/tmp/prey.conf";
-    NSMutableString * cmd = [NSMutableString stringWithCapacity:100];
-    
-    if ([self.bash state] == NSOnState){
-        NSString *stringBashConfig = [[NSString alloc] initWithContentsOfFile:bashConfigPath
-                                                                     encoding:NSUTF8StringEncoding
-                                                                        error:&error];
-        if (stringBashConfig != nil)
-        {
-            NSMutableString *bashConfig = [NSMutableString stringWithCapacity:[stringBashConfig length]];
-            [bashConfig appendString:stringBashConfig];
-            [self replaceInText:bashConfig usingRegexExp:@"check_url=.*" withText: [NSString stringWithFormat: @"check_url='https://%@'", newUrl]];
-            [bashConfig writeToFile:bashTmpPath atomically:YES encoding:NSUTF8StringEncoding error:&error];
-            [cmd appendFormat:@"mv %@ %@;", bashTmpPath, bashConfigPath];
-        }
-    }
-    if ([self.node state] == NSOnState){
-        
-        NSString *stringNodeConfig = [[NSString alloc] initWithContentsOfFile:nodeConfigPath
-                                                                     encoding:NSUTF8StringEncoding
-                                                                        error:&error];
-        if (stringNodeConfig != nil)
-        {
-            NSMutableString *nodeConfig = [NSMutableString stringWithCapacity:[stringNodeConfig length]];
-            [nodeConfig appendString:stringNodeConfig];
-            [self replaceInText:nodeConfig usingRegexExp:@"host = .*" withText: [NSString stringWithFormat: @"host = %@", newUrl]];
-            [nodeConfig writeToFile:nodeTmpPath atomically:YES encoding:NSUTF8StringEncoding error:&error];
-            [cmd appendFormat:@"mv %@ %@", nodeTmpPath, nodeConfigPath];
-        }
-    }
-    
-    if (cmd.length > 0)
-    {
-        error = nil;
-        NSDictionary *errorDict = [NSDictionary new];
-        NSString *script = [NSString stringWithFormat: @"do shell script \"%@\" with administrator privileges", cmd];
-        NSAppleScript *appleScript = [[NSAppleScript new] initWithSource:script];
-        [appleScript executeAndReturnError:&errorDict];
-        if (error != nil)
-            NSLog(@"%@", [error userInfo]);
-    }
-
-}
-
-- (void) replaceInText: (NSMutableString*) text usingRegexExp: (NSString*) regexp withText: (NSString*) newText
-{
-    NSError *error = nil;
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regexp options:NSRegularExpressionCaseInsensitive error:&error];
-    [regex replaceMatchesInString:text options:0 range:NSMakeRange(0, [text length]) withTemplate:newText];
-}
 
 -(void) drawIconForEnv: (NSString*) env
 {
@@ -161,21 +45,9 @@ int y;
         [[NSUserDefaults standardUserDefaults] setObject:[env stringByAppendingString:@"H"] forKey:@"iconH"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
-    [statusItem setImage:[NSImage imageNamed:[[NSUserDefaults standardUserDefaults] stringForKey:@"icon"]]];
-    [statusItem setAlternateImage:[NSImage imageNamed:[[NSUserDefaults standardUserDefaults] stringForKey:@"iconH"]]];
+    _statusItemPopup.image = [NSImage imageNamed:[[NSUserDefaults standardUserDefaults] stringForKey:@"icon"]];
+    _statusItemPopup.alternateImage = [NSImage imageNamed:[[NSUserDefaults standardUserDefaults] stringForKey:@"iconH"]];
 }
 
-- (IBAction)save:(id)sender {
-    [[NSUserDefaults standardUserDefaults] setObject:[self.urlProd stringValue] forKey:@"urlProd"];
-    [[NSUserDefaults standardUserDefaults] setObject:[self.urlStaging stringValue] forKey:@"urlStaging"];
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:[self.bash state]== NSOnState] forKey:@"bash"];
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:[self.node state]== NSOnState] forKey:@"node"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    [self.window close];
-}
 
-- (IBAction)cancel:(id)sender {
-    [self loadDefaults];
-    [self.window close];
-}
 @end
