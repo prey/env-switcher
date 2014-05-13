@@ -103,6 +103,18 @@ int const localhost=3;
     [(AppDelegate *)[[NSApplication sharedApplication] delegate] drawIconForEnv:@"localhost"];
 }
 
+- (IBAction)selectProduction:(id)sender {
+    [self.envTabs selectTabViewItemWithIdentifier:@"production"];
+}
+
+- (IBAction)selectStaging:(id)sender {
+    [self.envTabs selectTabViewItemWithIdentifier:@"staging"];
+}
+
+- (IBAction)selectLocalhost:(id)sender {
+    [self.envTabs selectTabViewItemWithIdentifier:@"localhost"];
+}
+
 
 -(void)performUpdateWithEnv: (int) env
 {

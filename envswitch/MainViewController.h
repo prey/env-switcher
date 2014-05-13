@@ -12,6 +12,7 @@
 @interface MainViewController : NSViewController
 
 @property(weak, nonatomic) AXStatusItemPopup *statusItemPopup;
+@property (weak) IBOutlet NSTabView *envTabs;
 
 @property (assign) IBOutlet NSButton *bash;
 @property (assign) IBOutlet NSButton *node;
@@ -34,6 +35,11 @@
 - (IBAction)applyProduction:(id)sender;
 - (IBAction)applyStaging:(id)sender;
 - (IBAction)applyLocalhost:(id)sender;
+
+- (IBAction)selectProduction:(id)sender;
+- (IBAction)selectStaging:(id)sender;
+- (IBAction)selectLocalhost:(id)sender;
+
 
 
 @end

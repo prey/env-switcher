@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
     </dependencies>
@@ -13,6 +13,7 @@
                 <outlet property="devLocalhost" destination="VHp-aE-ZQd" id="ciE-Bi-NJr"/>
                 <outlet property="devProd" destination="CxU-x5-yfq" id="kfK-AG-aOU"/>
                 <outlet property="devStaging" destination="hKn-Y5-znV" id="qSe-jd-BB8"/>
+                <outlet property="envTabs" destination="BZz-xf-cB9" id="F75-WG-aPI"/>
                 <outlet property="httpsLocalhost" destination="GXc-b2-iRq" id="gnd-V9-8Ye"/>
                 <outlet property="httpsProd" destination="iOC-rp-l5C" id="Yrv-Dz-HS1"/>
                 <outlet property="httpsStaging" destination="1kY-W5-JOg" id="OZM-hX-VUZ"/>
@@ -47,7 +48,7 @@
                             <rect key="frame" x="16" y="12" width="326" height="36"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                            <size key="cellSize" width="106" height="36"/>
+                            <size key="cellSize" width="73" height="36"/>
                             <size key="intercellSpacing" width="4" height="2"/>
                             <buttonCell key="prototype" type="radio" title="Radio" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="89X-A4-yhT">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -58,18 +59,27 @@
                                     <buttonCell type="bevel" title="Production" bezelStyle="regularSquare" image="production" imagePosition="above" alignment="center" alternateImage="productionA" state="on" tag="1" inset="2" id="Dvn-Gu-qGt">
                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                         <font key="font" metaFont="system"/>
+                                        <connections>
+                                            <action selector="selectProduction:" target="-2" id="1oC-Ct-bFC"/>
+                                        </connections>
                                     </buttonCell>
                                 </column>
                                 <column>
                                     <buttonCell type="bevel" title="Staging" bezelStyle="regularSquare" image="staging" imagePosition="above" alignment="center" alternateImage="stagingA" inset="2" id="wH1-8X-7wd">
                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                         <font key="font" metaFont="system"/>
+                                        <connections>
+                                            <action selector="selectStaging:" target="-2" id="XPS-qi-txj"/>
+                                        </connections>
                                     </buttonCell>
                                 </column>
                                 <column>
                                     <buttonCell type="bevel" title="Localhost" bezelStyle="regularSquare" image="localhost" imagePosition="above" alignment="center" alternateImage="localhostA" inset="2" id="bXo-9k-NQP">
                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                         <font key="font" metaFont="system"/>
+                                        <connections>
+                                            <action selector="selectLocalhost:" target="-2" id="pUL-Zp-fI8"/>
+                                        </connections>
                                     </buttonCell>
                                 </column>
                             </cells>
@@ -431,7 +441,7 @@ AAAAAAAAAQg
                     <font key="titleFont" metaFont="system"/>
                 </box>
                 <box autoresizesSubviews="NO" verticalHuggingPriority="750" fixedFrame="YES" alphaValue="0.10000000000000014" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="rHm-VI-Muk">
-                    <rect key="frame" x="0.0" y="99" width="358" height="5"/>
+                    <rect key="frame" x="0.0" y="99" width="358" height="4"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
