@@ -126,6 +126,7 @@
 		07B8A9D6191AE79600B882D6 /* AXStatusItemPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXStatusItemPopup.h; sourceTree = "<group>"; };
 		07B8A9D7191AE79600B882D6 /* AXStatusItemPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXStatusItemPopup.m; sourceTree = "<group>"; };
 		07C6443B191D1AA400A5BE16 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		2906C5BE1922C4A50045D8D3 /* envswitch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = envswitch.entitlements; sourceTree = "<group>"; };
 		298ADED21921B22500D9F176 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		298ADED31921B22500D9F176 /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
 		298ADED41921B22500D9F176 /* localhostA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = localhostA.png; sourceTree = "<group>"; };
@@ -205,6 +206,7 @@
 		07B8A94C1917FDDC00B882D6 /* envswitch */ = {
 			isa = PBXGroup;
 			children = (
+				2906C5BE1922C4A50045D8D3 /* envswitch.entitlements */,
 				07B8A9C7191ACD5000B882D6 /* AXStatusItemPopup */,
 				07B8A97C1918005100B882D6 /* Resources */,
 				07B8A9581917FDDC00B882D6 /* AppDelegate.h */,
@@ -361,6 +363,13 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Prey;
 				TargetAttributes = {
+					07B8A9421917FDDC00B882D6 = {
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
 					07B8A9631917FDDC00B882D6 = {
 						TestTargetID = 07B8A9421917FDDC00B882D6;
 					};
@@ -589,6 +598,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "envswitch/envswitch-Prefix.pch";
@@ -602,6 +612,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "envswitch/envswitch-Prefix.pch";
