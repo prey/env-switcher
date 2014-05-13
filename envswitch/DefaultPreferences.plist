@@ -12,9 +12,21 @@
 	<true/>
 	<key>urlProd</key>
 	<string>control.preyproject.com</string>
+	<key>apiProd</key>
+	<string></string>
+	<key>devProd</key>
+	<string></string>
 	<key>urlStaging</key>
 	<string>control.preyapp.com</string>
+	<key>apiStaging</key>
+	<string></string>
+	<key>devStaging</key>
+	<string></string>
 	<key>urlLocalhost</key>
 	<string>localhost</string>
+	<key>apiLocalhost</key>
+	<string></string>
+	<key>devLocalhost</key>
+	<string></string>
 </dict>
 </plist>
