@@ -45,10 +45,10 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
                         <matrix verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" selectionByRect="NO" autosizesCells="NO" translatesAutoresizingMaskIntoConstraints="NO" id="icq-lv-UPC">
-                            <rect key="frame" x="7" y="12" width="344" height="36"/>
+                            <rect key="frame" x="1" y="12" width="356" height="36"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                            <size key="cellSize" width="112" height="36"/>
+                            <size key="cellSize" width="116" height="36"/>
                             <size key="intercellSpacing" width="4" height="2"/>
                             <buttonCell key="prototype" type="radio" title="Radio" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="89X-A4-yhT">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -85,14 +85,14 @@
                             </cells>
                         </matrix>
                         <box autoresizesSubviews="NO" appearanceType="lightContent" horizontalHuggingPriority="750" fixedFrame="YES" alphaValue="0.29999999999999999" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="8hL-hj-q9S">
-                            <rect key="frame" x="116" y="0.0" width="5" height="60"/>
+                            <rect key="frame" x="116" y="0.0" width="4" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <font key="titleFont" metaFont="system"/>
                         </box>
                         <box autoresizesSubviews="NO" appearanceType="lightContent" horizontalHuggingPriority="750" fixedFrame="YES" alphaValue="0.29999999999999999" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="nGC-gU-iwN">
-                            <rect key="frame" x="235" y="0.0" width="5" height="60"/>
+                            <rect key="frame" x="235" y="0.0" width="9" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -215,11 +215,11 @@ AAAAAAAAAQg
                         </tabViewItem>
                         <tabViewItem label="Staging" identifier="staging" id="Tc8-SP-SJr" userLabel="Staging">
                             <view key="view" id="Mbm-2x-pMS">
-                                <rect key="frame" x="0.0" y="0.0" width="398" height="202"/>
+                                <rect key="frame" x="0.0" y="0.0" width="398" height="192"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" alphaValue="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="Z9R-Z4-JnG" userLabel="Label - Host">
-                                        <rect key="frame" x="30" y="166" width="72" height="17"/>
+                                        <rect key="frame" x="30" y="156" width="72" height="17"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="HOST:" id="EaG-k0-S2g">
                                             <font key="font" metaFont="smallSystemBold"/>
@@ -228,7 +228,7 @@ AAAAAAAAAQg
                                         </textFieldCell>
                                     </textField>
                                     <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DIR-Uf-dNv" userLabel="Input - Host">
-                                        <rect key="frame" x="140" y="165" width="224" height="22"/>
+                                        <rect key="frame" x="140" y="155" width="224" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="right" title="control.preyapp.com" placeholderString="control.preyapp.com" id="xIc-YB-Tiu">
                                             <font key="font" metaFont="system"/>
@@ -240,7 +240,7 @@ AAAAAAAAAQg
                                         </connections>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" alphaValue="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="kvu-Hi-PFd" userLabel="Label - Api key">
-                                        <rect key="frame" x="30" y="115" width="72" height="17"/>
+                                        <rect key="frame" x="30" y="105" width="72" height="17"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="API KEY:" id="aY9-vn-u7f">
                                             <font key="font" metaFont="smallSystemBold"/>
@@ -249,7 +249,7 @@ AAAAAAAAAQg
                                         </textFieldCell>
                                     </textField>
                                     <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QrX-lq-JdP" userLabel="Input - Api key">
-                                        <rect key="frame" x="140" y="115" width="224" height="22"/>
+                                        <rect key="frame" x="140" y="105" width="224" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="right" placeholderString="------------------" id="GPc-an-CLQ">
                                             <font key="font" metaFont="system"/>
@@ -261,7 +261,7 @@ AAAAAAAAAQg
                                         </connections>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" alphaValue="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="5b3-ZL-gg9" userLabel="Label - Device key">
-                                        <rect key="frame" x="30" y="66" width="81" height="17"/>
+                                        <rect key="frame" x="30" y="56" width="81" height="17"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="DEVICE KEY:" id="Efz-38-fl9">
                                             <font key="font" metaFont="smallSystemBold"/>
@@ -270,7 +270,7 @@ AAAAAAAAAQg
                                         </textFieldCell>
                                     </textField>
                                     <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hKn-Y5-znV" userLabel="Input - Device key">
-                                        <rect key="frame" x="140" y="65" width="224" height="22"/>
+                                        <rect key="frame" x="140" y="55" width="224" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="right" placeholderString="------" id="0Qu-x6-QcU">
                                             <font key="font" metaFont="system"/>
@@ -282,7 +282,7 @@ AAAAAAAAAQg
                                         </connections>
                                     </textField>
                                     <button focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1kY-W5-JOg" userLabel="Checkbox - Https">
-                                        <rect key="frame" x="30" y="17" width="61" height="18"/>
+                                        <rect key="frame" x="30" y="7" width="61" height="18"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="check" title="https:" bezelStyle="regularSquare" imagePosition="right" alignment="center" focusRingType="none" inset="2" id="wR3-yF-k0B">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -290,7 +290,7 @@ AAAAAAAAAQg
                                         </buttonCell>
                                     </button>
                                     <button appearanceType="lightContent" verticalHuggingPriority="750" fixedFrame="YES" alphaValue="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="wsB-41-cls" userLabel="Button - Apply">
-                                        <rect key="frame" x="288" y="15" width="74" height="19"/>
+                                        <rect key="frame" x="288" y="5" width="74" height="19"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="roundRect" title="Apply" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gex-bY-Mbh">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -453,11 +453,21 @@ AAAAAAAAAQg
                     <font key="titleFont" metaFont="system"/>
                 </box>
                 <box autoresizesSubviews="NO" verticalHuggingPriority="750" fixedFrame="YES" alphaValue="0.10000000000000014" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="rHm-VI-Muk">
-                    <rect key="frame" x="0.0" y="99" width="358" height="4"/>
+                    <rect key="frame" x="0.0" y="99" width="358" height="5"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <font key="titleFont" metaFont="system"/>
+                </box>
+                <box autoresizesSubviews="NO" appearanceType="lightContent" fixedFrame="YES" boxType="custom" borderType="none" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="dym-aA-s5w">
+                    <rect key="frame" x="0.0" y="50" width="358" height="201"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView">
+                        <rect key="frame" x="0.0" y="0.0" width="358" height="201"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                    <color key="fillColor" red="0.20071186894792795" green="0.21318632757594733" blue="0.24355233433734935" alpha="0.050000000000000003" colorSpace="calibratedRGB"/>
                 </box>
             </subviews>
             <constraints>
@@ -522,6 +532,10 @@ AAAAAAAAAQg
                 <outlet property="delegate" destination="-2" id="nEM-XS-aO2"/>
             </connections>
         </textField>
+        <customView appearanceType="lightContent" id="bgR-BI-dtm">
+            <rect key="frame" x="0.0" y="0.0" width="163" height="101"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+        </customView>
     </objects>
     <resources>
         <image name="close" width="14" height="14"/>
