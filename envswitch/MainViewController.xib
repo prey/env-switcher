@@ -257,15 +257,15 @@ AAAAAAAAAQg
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                     </button>
-                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YTk-DI-PGn" userLabel="Button - Apply">
+                                    <button appearanceType="lightContent" verticalHuggingPriority="750" fixedFrame="YES" alphaValue="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="wsB-41-cls" userLabel="Button - Apply">
                                         <rect key="frame" x="288" y="15" width="74" height="19"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="roundRect" title="Apply" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="U87-iA-jaj">
+                                        <buttonCell key="cell" type="roundRect" title="Apply" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gex-bY-Mbh">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="cellTitle"/>
+                                            <font key="font" metaFont="titleBar" size="12"/>
                                         </buttonCell>
                                         <connections>
-                                            <action selector="applyStaging:" target="-2" id="UwZ-f1-HH9"/>
+                                            <action selector="applyStaging:" target="-2" id="ZIm-WZ-ots"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -348,15 +348,15 @@ AAAAAAAAAQg
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                     </button>
-                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rhJ-Ji-X2w" userLabel="Button - Apply">
+                                    <button appearanceType="lightContent" verticalHuggingPriority="750" fixedFrame="YES" alphaValue="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="0w6-LP-npq" userLabel="Button - Apply">
                                         <rect key="frame" x="288" y="15" width="74" height="19"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="roundRect" title="Apply" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LCM-SM-vB7">
+                                        <buttonCell key="cell" type="roundRect" title="Apply" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tJW-7D-wXf">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="titleBar" size="12"/>
                                         </buttonCell>
                                         <connections>
-                                            <action selector="applyLocalhost:" target="-2" id="h19-gw-T7q"/>
+                                            <action selector="applyLocalhost:" target="-2" id="m3l-mk-S94"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -388,16 +388,20 @@ AAAAAAAAAQg
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
                         </button>
-                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LVb-EX-pb7" userLabel="Image - Close">
-                            <rect key="frame" x="329" y="18" width="14" height="14"/>
+                        <button identifier="close" focusRingType="none" appearanceType="lightContent" verticalHuggingPriority="750" fixedFrame="YES" alphaValue="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="Qyc-zM-2ZY" userLabel="Button - Close">
+                            <rect key="frame" x="324" y="15" width="18" height="19"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="close" id="6SU-WA-rd5"/>
-                        </imageView>
+                            <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" image="close" imagePosition="overlaps" alignment="center" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="WDb-JZ-8xZ" userLabel="Button Cell - Close">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="titleBar" size="12"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="exitApp:" target="-2" id="5eW-2a-r8y"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="centerY" secondItem="LVb-EX-pb7" secondAttribute="centerY" id="8BW-E2-v7U"/>
                         <constraint firstAttribute="height" constant="50" id="BGb-fj-ydy"/>
-                        <constraint firstAttribute="trailing" secondItem="LVb-EX-pb7" secondAttribute="trailing" constant="15" id="ZCq-V0-6MO"/>
                     </constraints>
                 </customView>
                 <box autoresizesSubviews="NO" verticalHuggingPriority="750" fixedFrame="YES" alphaValue="0.10000000000000014" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="1dD-ci-TeS">

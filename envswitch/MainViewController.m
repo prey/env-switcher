@@ -32,8 +32,6 @@ int const localhost=3;
 
 - (void)loadDefaults
 {
-    
-    
     NSURL *defaultPrefsFile = [[NSBundle mainBundle]
                                URLForResource:@"DefaultPreferences" withExtension:@"plist"];
     NSDictionary *defaultPrefs =
@@ -58,6 +56,13 @@ int const localhost=3;
     [self.apiLocalhost setStringValue:[[NSUserDefaults standardUserDefaults] stringForKey:@"apiLocalhost"]];
     [self.devLocalhost setStringValue:[[NSUserDefaults standardUserDefaults] stringForKey:@"devLocalhost"]];
     [self.httpsLocalhost setState:[[[NSUserDefaults standardUserDefaults] objectForKey:@"httpsLocalhost"] boolValue]];
+    
+    [self.urlProd resignFirstResponder];
+    
+}
+
+- (IBAction)exitApp:(NSButton*)sender {
+    [NSApp terminate:self];
 }
 
 - (void)willClose
