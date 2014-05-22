@@ -193,7 +193,7 @@ int const localhost=3;
             [self replaceInText:nodeConfig usingRegexExp:@"host = .*" withText: [NSString stringWithFormat: @"host = %@", url]];
             [self replaceInText:nodeConfig usingRegexExp:@"protocol = .*" withText: [NSString stringWithFormat: @"protocol = %@", protocol]];
             if (apiKey != nil)
-                [self replaceInText:nodeConfig usingRegexExp:@"api_key = .*" withText: [NSString stringWithFormat: @"api_key = '%@'", apiKey]];
+                [self replaceInText:nodeConfig usingRegexExp:@"api_key = .*" withText: [NSString stringWithFormat: @"api_key = %@", apiKey]];
             if (deviceKey != nil){
                 if (![deviceKey isEqualToString:@""]) deviceKey = [NSString stringWithFormat: @"'%@'", deviceKey];
                 [self replaceInText:nodeConfig usingRegexExp:@"device_key = .*" withText: [NSString stringWithFormat: @"device_key = %@", deviceKey]];
