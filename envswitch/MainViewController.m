@@ -195,7 +195,7 @@ int const localhost=3;
             if (apiKey != nil)
                 [self replaceInText:nodeConfig usingRegexExp:@"api_key = .*" withText: [NSString stringWithFormat: @"api_key = %@", apiKey]];
             if (deviceKey != nil){
-                if (![deviceKey isEqualToString:@""]) deviceKey = [NSString stringWithFormat: @"'%@'", deviceKey];
+                if (![deviceKey isEqualToString:@""]) deviceKey = [NSString stringWithFormat: @"%@", deviceKey];
                 [self replaceInText:nodeConfig usingRegexExp:@"device_key = .*" withText: [NSString stringWithFormat: @"device_key = %@", deviceKey]];
             }
             [nodeConfig writeToFile:nodeTmpPath atomically:YES encoding:NSUTF8StringEncoding error:&error];
