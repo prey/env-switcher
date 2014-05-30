@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "MainViewController.h"
+#import "EnvSwitcherViewController.h"
 #import "AXStatusItemPopup.h"
 
 @interface AppDelegate () {
@@ -21,20 +21,14 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    
-    MainViewController *mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+    EnvSwitcherViewController *envSwitcherViewController = [[EnvSwitcherViewController alloc] initWithNibName:@"EnvSwitcherViewController" bundle:nil];
     
     [self drawIconForEnv:nil];
     NSImage *image = [NSImage imageNamed:[[NSUserDefaults standardUserDefaults] stringForKey:@"icon"]];
     NSImage *alternateImage = [NSImage imageNamed:[[NSUserDefaults standardUserDefaults] stringForKey:@"iconH"]];
     
-    _statusItemPopup = [[AXStatusItemPopup alloc] initWithViewController:mainViewController image:image alternateImage:alternateImage];
+    _statusItemPopup = [[AXStatusItemPopup alloc] initWithViewController:envSwitcherViewController image:image alternateImage:alternateImage];
     [self.window close];
-/*
- 
-    [self loadDefaults];
-    [self createMenu];
-*/
 }
 
 

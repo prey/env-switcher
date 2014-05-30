@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "AXStatusItemPopup.h"
 
-@interface MainViewController : NSViewController
+@interface EnvSwitcherViewController : NSViewController
 
 @property(weak, nonatomic) AXStatusItemPopup *statusItemPopup;
 @property (weak) IBOutlet NSTabView *envTabs;

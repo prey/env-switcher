@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment defaultVersion="1080" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="MainViewController">
+        <customObject id="-2" userLabel="File's Owner" customClass="EnvSwitcherViewController">
             <connections>
                 <outlet property="apiLocalhost" destination="ooS-F0-V6T" id="gZS-dt-UOJ"/>
                 <outlet property="apiProd" destination="eJ6-td-55n" id="cuR-d8-zcO"/>
@@ -102,7 +103,7 @@
                             <font key="titleFont" metaFont="system"/>
                         </box>
                         <box autoresizesSubviews="NO" appearanceType="lightContent" horizontalHuggingPriority="750" fixedFrame="YES" alphaValue="0.29999999999999999" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="nGC-gU-iwN">
-                            <rect key="frame" x="235" y="0.0" width="5" height="60"/>
+                            <rect key="frame" x="235" y="0.0" width="9" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -146,7 +147,7 @@ AAAAAAAAAQg
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ty-EK-Obe" userLabel="Input - Host">
+                                    <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ty-EK-Obe" userLabel="Input - Host" customClass="PreyNSTextField">
                                         <rect key="frame" x="140" y="155" width="224" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="right" title="control.preyproject.com" placeholderString="control.preyproject.com" usesSingleLineMode="YES" id="J11-4u-FYA">
@@ -167,7 +168,7 @@ AAAAAAAAAQg
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eJ6-td-55n" userLabel="Input - Api key">
+                                    <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eJ6-td-55n" userLabel="Input - Api key" customClass="PreyNSTextField">
                                         <rect key="frame" x="140" y="105" width="224" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="right" placeholderString="------------------" usesSingleLineMode="YES" id="P4W-b0-2ZS">
@@ -188,7 +189,7 @@ AAAAAAAAAQg
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CxU-x5-yfq" userLabel="Input - Device key">
+                                    <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CxU-x5-yfq" userLabel="Input - Device key" customClass="PreyNSTextField">
                                         <rect key="frame" x="140" y="55" width="224" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="right" placeholderString="------" usesSingleLineMode="YES" id="bKc-uz-rgl">
@@ -237,7 +238,7 @@ AAAAAAAAAQg
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DIR-Uf-dNv" userLabel="Input - Host">
+                                    <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DIR-Uf-dNv" userLabel="Input - Host" customClass="PreyNSTextField">
                                         <rect key="frame" x="140" y="155" width="224" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="right" title="control.preyapp.com" placeholderString="control.preyapp.com" id="xIc-YB-Tiu">
@@ -258,7 +259,7 @@ AAAAAAAAAQg
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QrX-lq-JdP" userLabel="Input - Api key">
+                                    <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QrX-lq-JdP" userLabel="Input - Api key" customClass="PreyNSTextField">
                                         <rect key="frame" x="140" y="105" width="224" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="right" placeholderString="------------------" id="GPc-an-CLQ">
@@ -279,7 +280,7 @@ AAAAAAAAAQg
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hKn-Y5-znV" userLabel="Input - Device key">
+                                    <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hKn-Y5-znV" userLabel="Input - Device key" customClass="PreyNSTextField">
                                         <rect key="frame" x="140" y="55" width="224" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="right" placeholderString="------" id="0Qu-x6-QcU">
@@ -328,7 +329,7 @@ AAAAAAAAAQg
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tu7-BD-6Ow" userLabel="Input - Host">
+                                    <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tu7-BD-6Ow" userLabel="Input - Host" customClass="PreyNSTextField">
                                         <rect key="frame" x="140" y="155" width="224" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="right" title="localhost:3000" placeholderString="localhost:3000" id="ESh-71-Ugh">
@@ -349,7 +350,7 @@ AAAAAAAAAQg
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ooS-F0-V6T" userLabel="Input - Api key">
+                                    <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ooS-F0-V6T" userLabel="Input - Api key" customClass="PreyNSTextField">
                                         <rect key="frame" x="140" y="105" width="224" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="right" placeholderString="------------------" id="zuX-Tr-RjD">
@@ -370,7 +371,7 @@ AAAAAAAAAQg
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VHp-aE-ZQd" userLabel="Input - Device key">
+                                    <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VHp-aE-ZQd" userLabel="Input - Device key" customClass="PreyNSTextField">
                                         <rect key="frame" x="140" y="55" width="224" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="right" placeholderString="------" id="JgH-HO-733">

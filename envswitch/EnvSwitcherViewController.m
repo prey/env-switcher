@@ -6,18 +6,20 @@
 //  Copyright (c) 2014 Prey. All rights reserved.
 //
 
-#import "MainViewController.h"
+#import "EnvSwitcherViewController.h"
 #import "AppDelegate.h"
 
-@interface MainViewController ()
+@interface EnvSwitcherViewController ()
 
 @end
 
-@implementation MainViewController
+@implementation EnvSwitcherViewController
 
 int const prod=1;
 int const staging=2;
 int const localhost=3;
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
