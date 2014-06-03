@@ -31,6 +31,7 @@
 @property (assign) IBOutlet NSTextField *apiLocalhost;
 @property (assign) IBOutlet NSTextField *devLocalhost;
 @property (assign) IBOutlet NSButton *httpsLocalhost;
+@property (weak) IBOutlet NSButton *hostsCheck;
 
 - (IBAction)applyProduction:(id)sender;
 - (IBAction)applyStaging:(id)sender;
@@ -39,6 +40,7 @@
 - (IBAction)selectProduction:(id)sender;
 - (IBAction)selectStaging:(id)sender;
 - (IBAction)selectLocalhost:(id)sender;
+- (IBAction)hostsClicked:(NSButton *)sender;
 
 
 

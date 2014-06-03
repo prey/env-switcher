@@ -15,6 +15,7 @@
                 <outlet property="devProd" destination="CxU-x5-yfq" id="kfK-AG-aOU"/>
                 <outlet property="devStaging" destination="hKn-Y5-znV" id="qSe-jd-BB8"/>
                 <outlet property="envTabs" destination="BZz-xf-cB9" id="F75-WG-aPI"/>
+                <outlet property="hostsCheck" destination="Auq-Yz-96b" id="wZE-rC-rwy"/>
                 <outlet property="httpsLocalhost" destination="GXc-b2-iRq" id="gnd-V9-8Ye"/>
                 <outlet property="httpsProd" destination="iOC-rp-l5C" id="Yrv-Dz-HS1"/>
                 <outlet property="httpsStaging" destination="1kY-W5-JOg" id="OZM-hX-VUZ"/>
@@ -135,11 +136,11 @@ AAAAAAAAAQg
                     <tabViewItems>
                         <tabViewItem label="Production" identifier="production" id="KJK-I8-bgQ" userLabel="Production">
                             <view key="view" appearanceType="lightContent" id="Ol4-7h-hD0">
-                                <rect key="frame" x="0.0" y="0.0" width="398" height="192"/>
+                                <rect key="frame" x="0.0" y="0.0" width="398" height="202"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" alphaValue="0.30000000000000016" translatesAutoresizingMaskIntoConstraints="NO" id="MXp-H7-0mZ" userLabel="Label - Host">
-                                        <rect key="frame" x="30" y="156" width="72" height="17"/>
+                                        <rect key="frame" x="30" y="166" width="72" height="17"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="HOST:" id="EZk-vN-TRX">
                                             <font key="font" metaFont="smallSystemBold"/>
@@ -148,7 +149,7 @@ AAAAAAAAAQg
                                         </textFieldCell>
                                     </textField>
                                     <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ty-EK-Obe" userLabel="Input - Host" customClass="PreyNSTextField">
-                                        <rect key="frame" x="140" y="155" width="224" height="22"/>
+                                        <rect key="frame" x="140" y="165" width="224" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="right" title="control.preyproject.com" placeholderString="control.preyproject.com" usesSingleLineMode="YES" id="J11-4u-FYA">
                                             <font key="font" metaFont="system"/>
@@ -160,7 +161,7 @@ AAAAAAAAAQg
                                         </connections>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" alphaValue="0.30000000000000016" translatesAutoresizingMaskIntoConstraints="NO" id="fWP-lE-gdl" userLabel="Label - Api key">
-                                        <rect key="frame" x="30" y="105" width="72" height="17"/>
+                                        <rect key="frame" x="30" y="115" width="72" height="17"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="API KEY:" id="y6x-P5-QgA">
                                             <font key="font" metaFont="smallSystemBold"/>
@@ -169,7 +170,7 @@ AAAAAAAAAQg
                                         </textFieldCell>
                                     </textField>
                                     <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eJ6-td-55n" userLabel="Input - Api key" customClass="PreyNSTextField">
-                                        <rect key="frame" x="140" y="105" width="224" height="22"/>
+                                        <rect key="frame" x="140" y="115" width="224" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="right" placeholderString="------------------" usesSingleLineMode="YES" id="P4W-b0-2ZS">
                                             <font key="font" metaFont="system"/>
@@ -181,7 +182,7 @@ AAAAAAAAAQg
                                         </connections>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" alphaValue="0.30000000000000016" translatesAutoresizingMaskIntoConstraints="NO" id="uSK-bJ-rXn" userLabel="Label - Device key">
-                                        <rect key="frame" x="30" y="56" width="75" height="17"/>
+                                        <rect key="frame" x="30" y="66" width="75" height="17"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="DEVICE KEY:" id="e6b-zb-NNr">
                                             <font key="font" metaFont="smallSystemBold"/>
@@ -190,7 +191,7 @@ AAAAAAAAAQg
                                         </textFieldCell>
                                     </textField>
                                     <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CxU-x5-yfq" userLabel="Input - Device key" customClass="PreyNSTextField">
-                                        <rect key="frame" x="140" y="55" width="224" height="22"/>
+                                        <rect key="frame" x="140" y="65" width="224" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="right" placeholderString="------" usesSingleLineMode="YES" id="bKc-uz-rgl">
                                             <font key="font" metaFont="system"/>
@@ -202,7 +203,7 @@ AAAAAAAAAQg
                                         </connections>
                                     </textField>
                                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iOC-rp-l5C" userLabel="Checkbox - Https">
-                                        <rect key="frame" x="30" y="7" width="61" height="18"/>
+                                        <rect key="frame" x="30" y="17" width="61" height="18"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="check" title="https:" bezelStyle="regularSquare" imagePosition="right" alignment="center" state="on" inset="2" id="zGR-1z-yph">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -210,7 +211,7 @@ AAAAAAAAAQg
                                         </buttonCell>
                                     </button>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" alphaValue="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="n7p-qo-Czw" userLabel="Button - Apply">
-                                        <rect key="frame" x="288" y="5" width="74" height="19"/>
+                                        <rect key="frame" x="288" y="15" width="74" height="19"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="roundRect" title="Apply" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3OJ-te-QAz">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -440,6 +441,17 @@ AAAAAAAAAQg
                             </buttonCell>
                             <connections>
                                 <action selector="exitApp:" target="-2" id="5eW-2a-r8y"/>
+                            </connections>
+                        </button>
+                        <button appearanceType="lightContent" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Auq-Yz-96b">
+                            <rect key="frame" x="235" y="16" width="79" height="18"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="check" title="Host L3" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="tiu-59-fV4">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="hostsClicked:" target="-2" id="PV9-fN-GH3"/>
                             </connections>
                         </button>
                     </subviews>

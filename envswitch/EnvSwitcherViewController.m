@@ -57,6 +57,7 @@ int const localhost=3;
     [self.apiLocalhost setStringValue:[[NSUserDefaults standardUserDefaults] stringForKey:@"apiLocalhost"]];
     [self.devLocalhost setStringValue:[[NSUserDefaults standardUserDefaults] stringForKey:@"devLocalhost"]];
     [self.httpsLocalhost setState:[[[NSUserDefaults standardUserDefaults] objectForKey:@"httpsLocalhost"] boolValue]];
+
     
 }
 
@@ -112,6 +113,50 @@ int const localhost=3;
 
 - (IBAction)selectLocalhost:(id)sender {
     [self.envTabs selectTabViewItemWithIdentifier:@"localhost"];
+}
+
+- (IBAction)hostsClicked:(NSButton *)sender {
+    NSString * hostsPath = @"/etc/hosts";
+    NSString * hostsTmp = @"/tmp/hosts";
+    NSError * error = nil;
+    BOOL modified = NO;
+    NSString *hostsString = [[NSString alloc] initWithContentsOfFile:hostsPath
+                                                               encoding:NSUTF8StringEncoding
+                                                               error:&error];
+    NSMutableString *hostsConfig = [NSMutableString stringWithCapacity:[hostsString length]];
+    [hostsConfig appendString:hostsString];
+    if ([self.hostsCheck state] == NSOffState)
+    {
+        NSError *error;
+        NSString *pattern = @"^(\\d+.*#envswitcher)";
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionAnchorsMatchLines error:&error];
+        NSUInteger numberOfMatches = [regex numberOfMatchesInString:hostsConfig
+                                                            options:0
+                                                              range:NSMakeRange(0, [hostsConfig length])];
+        if (numberOfMatches > 0){
+            [regex replaceMatchesInString:hostsConfig options:0 range:NSMakeRange(0, [hostsConfig length]) withTemplate:@"#$1"];
+            modified = YES;
+        }
+    }
+    if ([self.hostsCheck state] == NSOnState)
+    {
+        NSError *error;
+        NSString *pattern = @"^#(\\d+.*#envswitcher)";
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionAnchorsMatchLines error:&error];
+        NSUInteger numberOfMatches = [regex numberOfMatchesInString:hostsConfig
+                                                            options:0
+                                                              range:NSMakeRange(0, [hostsConfig length])];
+        if (numberOfMatches > 0){
+            [regex replaceMatchesInString:hostsConfig options:0 range:NSMakeRange(0, [hostsConfig length]) withTemplate:@"$1"];
+            modified = YES;
+        }
+    }
+    if (modified)
+    {
+        [hostsConfig writeToFile:hostsTmp atomically:YES encoding:NSUTF8StringEncoding error:&error];
+        NSString *cmd = [NSString stringWithFormat:@"mv %@ %@", hostsTmp, hostsPath];
+        [self executeAsSudo:cmd];
+    }
 }
 
 
@@ -207,13 +252,7 @@ int const localhost=3;
     
     if (cmd.length > 0)
     {
-        error = nil;
-        NSDictionary *errorDict = [NSDictionary new];
-        NSString *script = [NSString stringWithFormat: @"do shell script \"%@\" with administrator privileges", cmd];
-        NSAppleScript *appleScript = [[NSAppleScript new] initWithSource:script];
-        [appleScript executeAndReturnError:&errorDict];
-        if (error != nil)
-            NSLog(@"%@", [error userInfo]);
+        [self executeAsSudo:cmd];
     }
 }
 
@@ -223,6 +262,18 @@ int const localhost=3;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regexp options:NSRegularExpressionCaseInsensitive error:&error];
     [regex replaceMatchesInString:text options:0 range:NSMakeRange(0, [text length]) withTemplate:newText];
 }
+
+-(void) executeAsSudo: (NSString*)cmd
+{
+    NSError * error = nil;
+    NSDictionary *errorDict = [NSDictionary new];
+    NSString *script = [NSString stringWithFormat: @"do shell script \"%@\" with administrator privileges", cmd];
+    NSAppleScript *appleScript = [[NSAppleScript new] initWithSource:script];
+    [appleScript executeAndReturnError:&errorDict];
+    if (error != nil)
+        NSLog(@"%@", [error userInfo]);
+}
+
 
 - (void)rightMouseUp:(NSEvent *)event {
     
@@ -234,6 +285,7 @@ int const localhost=3;
     [quitItem setKeyEquivalentModifierMask:NSCommandKeyMask];
     [theMenu popUpMenuPositioningItem:quitItem atLocation:[NSEvent mouseLocation] inView:nil];
 }
+
 
 
 @end
