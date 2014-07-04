@@ -201,6 +201,17 @@ int const localhost=3;
     
 }
 
+-(void)tabView:(NSTabView *)tabView willSelectTabViewItem:(NSTabViewItem *)tabViewItem
+{
+    NSString* label =[tabViewItem label];
+    if ([label isEqualToString:@"Triage"]){
+        NSURL *url = [NSURL URLWithString:@"http://10.0.0.163:8000/mine"];
+        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+        [[[self webView] mainFrame] loadRequest:urlRequest];
+    }
+        
+}
+
 - (void) updateConfigWithUrl: (NSString*) url andProtocol: (NSString*) protocol andApikey: (NSString*) apiKey andDeviceKey: (NSString*) deviceKey
 {
     NSError * error;

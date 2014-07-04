@@ -7,11 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <WebKit/WebKit.h>
 #import "AXStatusItemPopup.h"
 
-@interface EnvSwitcherViewController : NSViewController
+@interface EnvSwitcherViewController : NSViewController <NSTabViewDelegate>
 
 @property(weak, nonatomic) AXStatusItemPopup *statusItemPopup;
+
+@property (assign) IBOutlet WebView *webView;
 @property (weak) IBOutlet NSTabView *envTabs;
 
 @property (assign) IBOutlet NSButton *bash;
@@ -41,7 +44,5 @@
 - (IBAction)selectStaging:(id)sender;
 - (IBAction)selectLocalhost:(id)sender;
 - (IBAction)hostsClicked:(NSButton *)sender;
-
-
 
 @end

@@ -46,6 +46,7 @@
 		07B8A9C5191AB39300B882D6 /* 512@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07B8A9B9191AB39300B882D6 /* 512@2x.png */; };
 		07B8A9D4191AD17400B882D6 /* EnvSwitcherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B8A9D2191AD17400B882D6 /* EnvSwitcherViewController.m */; };
 		07B8A9D8191AE79600B882D6 /* AXStatusItemPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B8A9D7191AE79600B882D6 /* AXStatusItemPopup.m */; };
+		07BE8535196757FF007816AA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07BE8534196757FF007816AA /* WebKit.framework */; };
 		07C6443C191D1AA400A5BE16 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07C6443A191D1AA400A5BE16 /* MainMenu.xib */; };
 		07C6A50519392C570026403F /* PreyNSTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C6A50419392C570026403F /* PreyNSTextField.m */; };
 		298ADEE01921B22500D9F176 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 298ADED21921B22500D9F176 /* close.png */; };
@@ -126,6 +127,7 @@
 		07B8A9D3191AD17400B882D6 /* EnvSwitcherViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnvSwitcherViewController.xib; sourceTree = "<group>"; };
 		07B8A9D6191AE79600B882D6 /* AXStatusItemPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXStatusItemPopup.h; sourceTree = "<group>"; };
 		07B8A9D7191AE79600B882D6 /* AXStatusItemPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXStatusItemPopup.m; sourceTree = "<group>"; };
+		07BE8534196757FF007816AA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		07C6443B191D1AA400A5BE16 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		07C6A50319392C570026403F /* PreyNSTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreyNSTextField.h; sourceTree = "<group>"; };
 		07C6A50419392C570026403F /* PreyNSTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreyNSTextField.m; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07BE8535196757FF007816AA /* WebKit.framework in Frameworks */,
 				07B8A9471917FDDC00B882D6 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,6 +192,7 @@
 		07B8A9451917FDDC00B882D6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				07BE8534196757FF007816AA /* WebKit.framework */,
 				07B8A9461917FDDC00B882D6 /* Cocoa.framework */,
 				07B8A9651917FDDC00B882D6 /* XCTest.framework */,
 				07B8A9481917FDDC00B882D6 /* Other Frameworks */,
